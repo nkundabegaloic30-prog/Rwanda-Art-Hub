@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Rwanda Art Hub</title>
+    <link rel="icon" type="image/jpg" href="icon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rwanda-blue: #003C88;
+            --rwanda-yellow: #FFD100;
+            --rwanda-green: #00A859;
+            --rwanda-light: #F5F5F5;
+            --rwanda-dark: #1A1A1A;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: var(--rwanda-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Header & Navigation - Same as other pages */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 60, 136, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 5%;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header.scrolled {
+            padding: 10px 5%;
+            background: rgba(0, 60, 136, 0.98);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--rwanda-yellow);
+            animation: pulse 2s infinite;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--rwanda-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--rwanda-yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rwanda-yellow);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80') center/cover no-repeat fixed;
+            color: white;
+            text-align: center;
+            padding: 150px 20px 80px;
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--rwanda-blue);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--rwanda-yellow);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--rwanda-yellow);
+            color: var(--rwanda-blue);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--rwanda-yellow);
+            box-shadow: 0 5px 15px rgba(255, 209, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 209, 0, 0.4);
+        }
+
+        /* Contact Container */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--rwanda-blue);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-info h3 i {
+            color: var(--rwanda-yellow);
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--rwanda-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rwanda-blue);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--rwanda-blue);
+        }
+
+        /* Social Media */
+        .social-section {
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--rwanda-light);
+            border-radius: 50%;
+            color: var(--rwanda-blue);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: var(--rwanda-blue);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--rwanda-blue);
+        }
+
+        input, select, textarea {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--rwanda-blue);
+            box-shadow: 0 0 0 3px rgba(0, 60, 136, 0.1);
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, var(--rwanda-blue) 0%, var(--rwanda-green) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 80px 5%;
+            margin-bottom: 80px;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .team-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--rwanda-yellow);
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            color: var(--rwanda-yellow);
+            margin-bottom: 10px;
+        }
+
+        .team-role {
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .team-email {
+            color: var(--rwanda-yellow);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: white;
+            border-radius: 20px;
+            padding: 80px 5%;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--rwanda-blue);
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--rwanda-light);
+            border-radius: 20px;
+            padding: 80px 5%;
+            margin-top: 80px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 60, 136, 0.05);
+        }
+
+        .faq-question h3 {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+            color: var(--rwanda-blue);
+        }
+
+        .faq-toggle {
+            background: none;
+            border: none;
+            color: var(--rwanda-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer - Same as other pages */
+        footer {
+            background: var(--rwanda-dark);
+            color: white;
+            padding: 80px 5% 40px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--rwanda-yellow);
+        }
+
+        .footer-links h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4:after, .footer-social h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--rwanda-yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--rwanda-yellow);
+            padding-left: 5px;
+        }
+
+        .social-icons-footer {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons-footer a:hover {
+            background: var(--rwanda-yellow);
+            color: var(--rwanda-blue);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 209, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 209, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 209, 0, 0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .page-hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .contact-container {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--rwanda-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 25px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 30px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-icon {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="main-header">
+        <nav>
+            <a href="home.html" class="logo">
+                <img src="icon.jpg" alt="Rwanda Art Hub Logo" class="logo-img">
+                <div class="logo-text">Rwanda <span>Art Hub</span></div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="visit.html">Visit Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>Get in touch with Rwanda Art Hub. We're here to answer your questions and help you plan your visit.</p>
+        </div>
+    </section>
+
+    <!-- Contact Information & Form -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get in Touch</h2>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3><i class="fas fa-info-circle"></i> Contact Information</h3>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>Rwanda Art Hub</p>
+                            <p>KG 123 Street, Kacyiru</p>
+                            <p>Kigali, Rwanda</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone Numbers</h4>
+                            <p>+250 788 123 456 (General Inquiries)</p>
+                            <p>+250 788 987 654 (Workshop Bookings)</p>
+                            <p>+250 788 555 777 (Art Sales)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Addresses</h4>
+                            <p>info@rwandaarthub.rw (General)</p>
+                            <p>bookings@rwandaarthub.rw (Bookings)</p>
+                            <p>art@rwandaarthub.rw (Art Inquiries)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 7:00 PM</p>
+                            <p>Sunday: 10:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                    <p>Stay updated on exhibitions, workshops, and events</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h3><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="visit">Visit Planning</option>
+                            <option value="workshop">Workshop Booking</option>
+                            <option value="tour">Guided Tour</option>
+                            <option value="art">Art Purchase Inquiry</option>
+                            <option value="artist">Artist Information</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="press">Press & Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Contacts -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2 style="color: white;">Contact Our Team</h2>
+        </div>
+
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Marie Uwase">
+                </div>
+                <h3>Marie Uwase</h3>
+                <p class="team-role">Director & Founder</p>
+                <p>For strategic partnerships, major exhibitions, and organizational inquiries.</p>
+                <p class="team-email">marie@rwandaarthub.rw</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Paul">
+                </div>
+                <h3>Jean Paul Niyonzima</h3>
+                <p class="team-role">Head Curator</p>
+                <p>For artist submissions, exhibition proposals, and collection inquiries.</p>
+                <p class="team-email">jeanpaul@rwandaarthub.rw</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Grace Mutesi">
+                </div>
+                <h3>Grace Mutesi</h3>
+                <p class="team-role">Workshop Coordinator</p>
+                <p>For workshop bookings, group visits, and educational programs.</p>
+                <p class="team-email">grace@rwandaarthub.rw</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="section-title">
+                <h2>Stay Connected</h2>
+            </div>
+
+            <p>Subscribe to our newsletter for updates on new exhibitions, workshops, artist features, and special events.</p>
+
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+
+            <p style="margin-top: 20px; font-size: 0.9rem;">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How quickly can I expect a response to my inquiry?</h3>
+                    <button class="faq-toggle"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="faq-answer">
+                    <p>We aim to respond to all inquiries within 24-48 hours during business days. For urgent matters, please call our main line at +250 788 123 456.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I schedule a private tour outside of regular hours?</h3>
+                    <button class="faq-toggle"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, private tours can be arranged outside of regular hours for groups of 10 or more. Additional fees apply. Please contact our bookings department at least one week in advance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer art shipping services internationally?</h3>
+                    <button class="faq-toggle"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer international shipping for art purchases. Shipping costs are calculated based on size, weight, and destination. We use professional art handlers and insured shipping services.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can local artists submit their work for consideration?</h3>
+                    <button class="faq-toggle"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="faq-answer">
+                    <p>Rwandan artists can submit their portfolio through our online submission form or by emailing art@rwandaarthub.rw. Please include high-quality images, an artist statement, and relevant background information.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer corporate event hosting or team building activities?</h3>
+                    <button class="faq-toggle"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer custom corporate packages including private viewings, team building workshops, and event hosting. Contact our partnerships team for customized proposals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Rwanda <span>Art Hub</span></div>
+                <p>Where you feel Rwanda's heartbeat and take a piece of its spirit home with you.</p>
+                <p>A vibrant creative sanctuary celebrating Rwanda's art, culture, and people.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="visit.html">Visit Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <p>Stay connected with Rwanda Art Hub</p>
+                <div class="social-icons-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Rwanda Art Hub. All rights reserved.</p>
+            <p>Created by: Nkunda Bega Loic - Lv 3 SWD B</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const subject = document.getElementById('subject').value;
+
+            alert(`Thank you, ${name}! Your ${subject} inquiry has been received. We'll respond within 24-48 hours.`);
+
+            contactForm.reset();
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+
+            alert(`Thank you! ${email} has been subscribed to our newsletter.`);
+
+            newsletterForm.reset();
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const toggle = item.querySelector('.faq-toggle');
+
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.contact-item, .team-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
